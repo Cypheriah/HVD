@@ -9,6 +9,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const modalMessage = document.getElementById('modal-message');
     const modalImage = document.getElementById('modal-image');
     const closeButton = document.querySelector('.close-button');
+    const videoContainer = document.getElementById('video-container');
+    const successVideo = document.getElementById('success-video');
     
     // Encrypted password (original: "sinigang")
     const encryptedPassword = "73696e6967616e67"; // "sinigang" in hexadecimal
@@ -67,13 +69,13 @@ document.addEventListener('DOMContentLoaded', function() {
         rosesContainer.innerHTML = '';
         rosesContainer.style.display = 'block';
 
-        // Create more elements
+        // Create hearts and roses animation
         for (let i = 0; i < 300; i++) {
             const element = i % 2 === 0 ? createFloatingElement('heart') : createFloatingElement('rose');
             rosesContainer.appendChild(element);
         }
 
-        // Animate all elements
+        // Animate elements
         const elements = rosesContainer.children;
         Array.from(elements).forEach((element, index) => {
             const delay = index * 20;
@@ -87,19 +89,19 @@ document.addEventListener('DOMContentLoaded', function() {
                 element.style.opacity = '1';
                 element.style.transform = 'translate(0, 0) rotate(0deg)';
             }, delay);
-
-            // Remove elements after animation
-            setTimeout(() => {
-                element.style.opacity = '0';
-                element.style.transform = `translate(${Math.random() * 200 - 100}px, ${1000}px) rotate(${Math.random() * 360}deg)`;
-            }, duration + delay + 2000);
         });
 
-        // Clean up after all animations
+        // Show and play video after rose animation
+        setTimeout(() => {
+            videoContainer.classList.remove('hidden');
+            successVideo.play();
+        }, 2000);
+
+        // Clean up roses after video starts
         setTimeout(() => {
             rosesContainer.style.display = 'none';
             rosesContainer.innerHTML = '';
-        }, 5000);
+        }, 3000);
     }
 
     // Password check with encryption
@@ -145,6 +147,20 @@ document.addEventListener('DOMContentLoaded', function() {
         } else {
             hintText.classList.add('hidden');
             hintButton.textContent = 'Need a hint?';
+        }
+    });
+
+    // Add video end event listener
+    successVideo.addEventListener('ended', function() {
+        videoContainer.classList.add('hidden');
+    });
+
+    // Add click event to close video
+    videoContainer.addEventListener('click', function(e) {
+        if (e.target === videoContainer) {
+            videoContainer.classList.add('hidden');
+            successVideo.pause();
+            successVideo.currentTime = 0;
         }
     });
 });
