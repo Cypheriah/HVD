@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentine's Day Special</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div id="roses-container" class="roses-container"></div>
+    <div class="video-background">
+        <iframe src="https://player.vimeo.com/video/1056403945?h=2d4c2ad98f&badge=0&autopause=0&player_id=0&app_id=58479&background=1" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="140669-775595968_small"></iframe>
+    </div>
+    <div class="video-overlay"></div>
+    <header>
+        <h1>
+            <span class="heart-left">❤️</span>
+            Happy Valentine's Day
+            <span class="heart-right">❤️</span>
+        </h1>
+    </header>
+    <main>
+        <section class="buttons">
+            <div class="button-container">
+                <button class="message-button" data-message="Hello Kendi, Thanks for playing with me kahit binubuhat kita, eme HAHAHA. Baka malakas yarn mag feng min" data-image="dbdsngng.jpg">Message 1</button>
+            </div>
+            <div class="button-container">
+                <button class="message-button" data-message="Ohh Pak!! Kyutie mo dyan, be HAHAHAHA" data-image="Kendi.gif">Message 2</button>
+            </div>
+            <div class="button-container">
+                <button class="message-button" data-message="Anw, Take care of ur health, be. pag sa sarili mo ako na bahala mag alaga sa'yo HAHAHA. Also wag mo masyado i-overwork ung sarili mo and kumain ka sa tamang oras, nde ung tinatanong mo ako tas ikaw ung hindi pa kumakain " data-image="catto.jpg">Message 3</button>
+            </div>
+        </section>
+    </main>
+    <div class="password-section">
+        <div class="password-box">
+            <input type="password" id="password-input" placeholder="Enter password...">
+            <button id="submit-password">Submit</button>
+        </div>
+        <div class="hint-container">
+            <button id="hint-button" class="hint-button">Need a hint?</button>
+            <div id="hint-text" class="hint-text hidden">
+                Hint: A Filipino sour soup 🍲
+            </div>
+        </div>
+    </div>
+
+    <!-- Rose animation container -->
+    <div id="roses-container" class="roses-container hidden"></div>
+
+    <footer>
+        <p>2025 Valentine's Day Special for Kendi.</p>
+    </footer>
+
+    <!-- Modal Structure -->
+    <div id="modal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <div class="modal-roses">
+                <div class="rose-left">🌹</div>
+                <div class="rose-right">🌹</div>
+                <div class="rose-top-left">🌹</div>
+                <div class="rose-top-right">🌹</div>
+                <div class="rose-bottom-left">🌹</div>
+                <div class="rose-bottom-right">🌹</div>
+                <!-- Additional corner roses -->
+                <div class="rose-corner" style="top: 50%; left: 10px;">🌹</div>
+                <div class="rose-corner" style="top: 50%; right: 10px;">🌹</div>
+                <div class="rose-corner" style="top: 10px; left: 50%;">🌹</div>
+                <div class="rose-corner" style="bottom: 10px; left: 50%;">🌹</div>
+            </div>
+            <img id="modal-image" src="" alt="Message Image" class="hidden" style="max-width: 100%; height: auto; margin-bottom: 20px;">
+            <p id="modal-message"></p>
+        </div>
+    </div>
+
+    <script src="https://player.vimeo.com/api/player.js"></script>
+    <script src="script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+</body>
+</html>

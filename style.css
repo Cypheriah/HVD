@@ -1,0 +1,652 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #fff0f5; /* Light pink background */
+    color: #333; /* Dark text for contrast */
+    line-height: 1.6;
+    padding: 20px;
+    position: relative;
+    z-index: 1;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+header, footer {
+    text-align: center;
+    padding: 60px 20px;
+    background: linear-gradient(135deg, #ff6f91, #ff9a8b);
+    color: white;
+    position: relative;
+    overflow: hidden;
+    animation: gradientShift 10s ease-in-out infinite;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+header::before {
+    content: '';
+    position: absolute;
+    top: -50px;
+    left: -50px;
+    width: 100px;
+    height: 100px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    animation: float 6s ease-in-out infinite;
+}
+
+header::after {
+    content: '';
+    position: absolute;
+    bottom: -50px;
+    right: -50px;
+    width: 100px;
+    height: 100px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    animation: float 6s ease-in-out infinite reverse;
+}
+
+header h1 {
+    font-size: 2.8em;
+    margin-bottom: 25px;
+    animation: titleFloat 3s ease-in-out infinite;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+}
+
+.heart-left, .heart-right {
+    font-size: 0.8em;
+    display: inline-block;
+    animation: heartBeat 1.5s ease-in-out infinite;
+}
+
+.heart-right {
+    animation-delay: 0.5s;
+}
+
+header p {
+    font-size: 1.3em;
+    color: white;
+    margin-bottom: 35px;
+}
+
+main {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    flex: 1;
+}
+
+.intro {
+    margin-bottom: 40px;
+}
+
+.intro h2 {
+    font-size: 1.8em;
+    margin-bottom: 20px;
+    color: #ff6f91;
+}
+
+footer {
+    margin-top: 40px;
+    padding: 40px 20px;
+}
+
+footer::before {
+    content: '';
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    width: 200%;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateX(-50%) rotate(45deg);
+    z-index: -1;
+}
+
+footer p {
+    position: relative;
+    z-index: 1;
+}
+
+footer .social-icons {
+    margin-top: 20px;
+}
+
+footer .social-icons a {
+    margin: 0 10px;
+    color: white;
+    text-decoration: none;
+    font-size: 1.5em;
+    transition: color 0.3s ease;
+}
+
+footer .social-icons a:hover {
+    color: #ff4f71;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-100%);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.content-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 70vh;
+    padding: 20px;
+    position: relative;
+    z-index: 2;
+    margin-top: 40px;
+}
+
+.buttons-section {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 50px;
+    margin: 60px auto;
+    width: 100%;
+    max-width: 1200px;
+    padding: 40px;
+    position: relative;
+    z-index: 2;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    backdrop-filter: blur(5px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    flex-wrap: wrap;
+}
+
+.message-button {
+    background: linear-gradient(135deg, #ff6f91, #ff9a8b);
+    color: white;
+    border: none;
+    padding: 20px 40px;
+    border-radius: 25px;
+    font-size: 1.1em;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: auto;
+    min-width: 220px;
+    max-width: 300px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: relative;
+    z-index: 2;
+    letter-spacing: 0.5px;
+    flex: 0 1 auto;
+    margin: 10px 25px;
+}
+
+.message-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    background: linear-gradient(135deg, #ff5c82, #ff8677);
+}
+
+.message-button:active {
+    transform: translateY(-1px);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+}
+
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+    animation: fadeIn 0.5s;
+}
+
+.modal-content {
+    position: relative;
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 500px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    animation: modalSlideIn 0.5s ease;
+}
+
+.modal-roses {
+    position: absolute;
+    width: 100%;
+    top: -40px;
+    left: 0;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 20px;
+    pointer-events: none;
+}
+
+.rose-left, .rose-right {
+    font-size: 5em;
+    animation: roseFloat 2s ease-in-out infinite;
+}
+
+.rose-top-left, .rose-top-right, 
+.rose-bottom-left, .rose-bottom-right {
+    position: absolute;
+    font-size: 4.5em;
+    animation: roseFloat 2s ease-in-out infinite;
+}
+
+.rose-top-left { top: -20px; left: 20px; }
+.rose-top-right { top: -20px; right: 20px; }
+.rose-bottom-left { bottom: -20px; left: 20px; }
+.rose-bottom-right { bottom: -20px; right: 20px; }
+
+.rose {
+    position: fixed;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23ff6f91"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>');
+    background-size: contain;
+    background-repeat: no-repeat;
+    z-index: 9999;
+    transition: all 0.5s ease;
+}
+
+/* Additional roses for corners */
+.rose-corner {
+    position: absolute;
+    font-size: 4em;
+    animation: roseFloat 2s ease-in-out infinite;
+}
+
+@keyframes roseFloat {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-10px) rotate(5deg);
+    }
+}
+
+@keyframes modalSlideIn {
+    from {
+        transform: translateY(-100px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.modal.success .modal-content {
+    border: 2px solid #ff6f91;
+}
+
+.modal-message {
+    text-align: center;
+    margin: 20px 0;
+    color: #333;
+    font-size: 1.2em;
+}
+
+.close-button {
+    position: absolute;
+    right: 15px;
+    top: 10px;
+    color: #aaa;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    z-index: 1;
+}
+
+.close-button:hover {
+    color: #ff6f91;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideIn {
+    from { transform: translateY(-50px); }
+    to { transform: translateY(0); }
+}
+
+.video-background {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.video-background iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw !important;
+    height: 100vh !important;
+    border: none;
+    pointer-events: none;
+    object-fit: cover;
+}
+
+.video-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(5px);
+    z-index: 0;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 1200px) {
+    .buttons-section {
+        gap: 40px;
+        padding: 30px;
+    }
+}
+
+@media (max-width: 900px) {
+    .buttons-section {
+        flex-direction: column;
+        padding: 25px;
+        gap: 30px;
+    }
+
+    .message-button {
+        width: 100%;
+        max-width: 280px;
+        padding: 16px 32px;
+        font-size: 1em;
+        margin: 5px 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .content-wrapper {
+        min-height: 60vh;
+    }
+
+    .buttons-section {
+        margin: 30px auto;
+        padding: 20px;
+        gap: 20px;
+    }
+
+    .message-button {
+        padding: 14px 28px;
+        font-size: 0.95em;
+        max-width: 240px;
+    }
+}
+
+.password-section {
+    text-align: center;
+    margin: 40px 0;
+    padding: 20px;
+    position: relative;
+    z-index: 1;
+}
+
+.password-box {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    max-width: 400px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+}
+
+#password-input {
+    padding: 12px 20px;
+    border: 2px solid #ff6f91;
+    border-radius: 25px;
+    font-size: 16px;
+    outline: none;
+    width: 200px;
+    transition: all 0.3s ease;
+    background: white;
+    position: relative;
+    z-index: 2;
+}
+
+#password-input:focus {
+    border-color: #ff4f71;
+    box-shadow: 0 0 5px rgba(255, 111, 145, 0.5);
+}
+
+#submit-password {
+    padding: 12px 25px;
+    background-color: #ff6f91;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 2;
+}
+
+#submit-password:hover {
+    background-color: #ff4f71;
+    transform: translateY(-2px);
+}
+
+.roses-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 9999;
+    overflow: hidden;
+}
+
+.hidden {
+    display: none;
+}
+
+.hint-container {
+    margin-top: 15px;
+    position: relative;
+    z-index: 2;
+}
+
+.hint-button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+    text-decoration: underline;
+    padding: 5px 10px;
+    transition: all 0.3s ease;
+}
+
+.hint-button:hover {
+    color: #ffccd5;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+}
+
+.hint-text {
+    margin-top: 10px;
+    color: white;
+    font-size: 14px;
+    font-style: italic;
+    animation: fadeIn 0.5s ease;
+}
+
+.hint-text.hidden {
+    display: none;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes titleFloat {
+    0%, 100% {
+        transform: translateY(0);
+        text-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+    50% {
+        transform: translateY(-10px);
+        text-shadow: 0 15px 20px rgba(0, 0, 0, 0.3);
+    }
+}
+
+@keyframes heartBeat {
+    0%, 100% {
+        transform: scale(1);
+    }
+    25% {
+        transform: scale(1.2) rotate(-10deg);
+    }
+    50% {
+        transform: scale(1) rotate(0deg);
+    }
+    75% {
+        transform: scale(1.2) rotate(10deg);
+    }
+}
+
+/* Add this to your existing CSS */
+.heart {
+    position: fixed;
+    color: #ff6f91;
+    z-index: 9999;
+    transition: all 0.5s ease;
+}
+
+/* Media Queries for Header */
+@media (max-width: 768px) {
+    header {
+        padding: 25px;
+    }
+
+    header h1 {
+        font-size: 2.5em;
+        gap: 15px;
+        margin-bottom: 20px;
+    }
+
+    header p {
+        font-size: 1.2em;
+        margin-bottom: 28px;
+    }
+
+    .heart-left, .heart-right {
+        font-size: 0.9em;
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        padding: 20px;
+    }
+
+    header h1 {
+        font-size: 2.2em;
+        gap: 12px;
+        margin-bottom: 18px;
+        flex-wrap: wrap;
+    }
+
+    header p {
+        font-size: 1.1em;
+        margin-bottom: 22px;
+    }
+
+    .heart-left, .heart-right {
+        font-size: 0.8em;
+    }
+}
+
+@media (max-width: 320px) {
+    header h1 {
+        font-size: 2em;
+        padding: 0 10px;
+    }
+
+    header p {
+        font-size: 1em;
+    }
+}
