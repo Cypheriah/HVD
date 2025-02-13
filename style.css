@@ -650,3 +650,25 @@ footer .social-icons a:hover {
         font-size: 1em;
     }
 }
+
+.video-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9998;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.video-container.hidden {
+    display: none;
+}
+
+#success-video {
+    max-width: 90%;
+    max-height: 90vh;
+}
